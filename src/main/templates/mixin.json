@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "types.and.variants.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "types_and_variants.refmap.json",
+  "mixins":
+  [
+    "MobMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
