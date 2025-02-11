@@ -18,11 +18,11 @@ public class Slender extends Common
         return 6;
     }
     @Override
-    public void damage(LivingDamageEvent livingDamageEvent)
+    public void damage(LivingDamageEvent.Pre livingDamageEvent)
     {
         if(livingDamageEvent.getEntity().getRandom().nextBoolean())
         {
-            livingDamageEvent.setCanceled(true);
+            livingDamageEvent.getContainer().setNewDamage(0.0f);
         }
     }
 }

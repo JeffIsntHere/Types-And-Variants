@@ -27,7 +27,7 @@ public class Joe extends Common
     }
     public int cooldown = 1;
     @Override
-    public void damage(LivingDamageEvent livingDamageEvent)
+    public void damage(LivingDamageEvent.Post livingDamageEvent)
     {
         cooldown--;
         if(cooldown != 0)

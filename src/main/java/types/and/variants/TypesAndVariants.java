@@ -1,12 +1,12 @@
 package types.and.variants;
 
 import com.mojang.logging.LogUtils;
-import net.minecraft.world.entity.LivingEntity;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
+import net.neoforged.neoforge.event.entity.living.LivingDamageEvent.Pre;
+import net.neoforged.neoforge.event.entity.living.LivingDamageEvent.Post;
 import org.slf4j.Logger;
 
 @Mod(TypesAndVariants.modId)
@@ -19,7 +19,16 @@ public class TypesAndVariants
         NeoForge.EVENT_BUS.register(this);
     }
     @SubscribeEvent
-    public void livingDamageEvent(LivingDamageEvent livingDamageEvent)
+    public void livingDamageEvent(Pre livingDamageEvent)
+    {
+        if(livingDamageEvent.getEntity() instanceof GetTypeAndVariants getTypeAndVariants)
+        {
+            getTypeAndVariants.type().damage(livingDamageEvent);
+            getTypeAndVariants.variant().damage(livingDamageEvent);
+        }
+    }
+    @SubscribeEvent
+    public void livingDamageEvent(Post livingDamageEvent)
     {
         if(livingDamageEvent.getEntity() instanceof GetTypeAndVariants getTypeAndVariants)
         {
