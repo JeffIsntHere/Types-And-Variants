@@ -11,7 +11,7 @@ import java.util.List;
 public class Strange extends Common
 {
     public static final Strange instance = new Strange();
-    public final StringArrayType types = new StringArrayType("types", new ArrayList<>(List.of("ALL")));
+    public static final StringArrayType types = new StringArrayType("types", new ArrayList<>(List.of("all")));
     @Override
     public float chance()
     {

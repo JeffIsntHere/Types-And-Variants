@@ -13,7 +13,7 @@ import java.util.List;
 public class Giant extends Common
 {
     public static final Giant instance = new Giant();
-    public final StringArrayType types = new StringArrayType("types", new ArrayList<>(List.of("ALL")));
+    public static final StringArrayType types = new StringArrayType("types", new ArrayList<>(List.of("all")));
     @Override
     public float chance()
     {

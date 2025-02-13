@@ -33,12 +33,12 @@ public abstract class MobMixin extends LivingEntity implements GetTypeAndVariant
     {
         if(this.type == Common.invalid)
         {
-            this.type = TypeUtil.instance.getCommon(super.random);
+            this.type = TypeUtil.instance.getCommon(super.random, this);
             this.type.init(this);
         }
         if(this.variant == Common.invalid)
         {
-            this.variant = VariantUtil.instance.getCommon(super.random);
+            this.variant = VariantUtil.instance.getCommon(super.random, this);
             this.variant.init(this);
         }
         this.type.tick(this);

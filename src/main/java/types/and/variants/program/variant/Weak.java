@@ -13,7 +13,7 @@ import java.util.List;
 public class Weak extends Common
 {
     public static final Weak instance = new Weak();
-    public final StringArrayType types = new StringArrayType("types", new ArrayList<>(List.of("ALL")));
+    public static final StringArrayType types = new StringArrayType("types", new ArrayList<>(List.of("all")));
     @Override
     public float chance()
     {

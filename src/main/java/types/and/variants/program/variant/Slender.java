@@ -10,7 +10,7 @@ import java.util.List;
 public class Slender extends Common
 {
     public static final Slender instance = new Slender();
-    public final StringArrayType types = new StringArrayType("types", new ArrayList<>(List.of("ALL")));
+    public static final StringArrayType types = new StringArrayType("types", new ArrayList<>(List.of("all")));
     @Override
     public float chance()
     {

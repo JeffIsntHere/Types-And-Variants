@@ -13,7 +13,7 @@ import java.util.List;
 public class Slow extends Common
 {
     public static final Slow instance = new Slow();
-    public final StringArrayType types = new StringArrayType("types", new ArrayList<>(List.of("ALL")));
+    public static final StringArrayType types = new StringArrayType("types", new ArrayList<>(List.of("all")));
     @Override
     public float chance()
     {

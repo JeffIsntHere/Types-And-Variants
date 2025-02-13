@@ -13,7 +13,7 @@ import java.util.List;
 public class Fast extends Common
 {
     public static final Fast instance = new Fast();
-    public final StringArrayType types = new StringArrayType("types", new ArrayList<>(List.of("ALL")));
+    public static final StringArrayType types = new StringArrayType("types", new ArrayList<>(List.of("all")));
     @Override
     public float chance()
     {

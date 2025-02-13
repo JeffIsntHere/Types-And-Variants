@@ -15,11 +15,11 @@ public class TypeUtil extends CommonUtil
     {
         if(enableGiant.value)
         {
-            super.commons.add(Giant.instance);
+            super.addCommon(Giant.instance, Giant.types);
         }
         if(enableJoe.value)
         {
-            super.commons.add(Joe.instance);
+            super.addCommon(Joe.instance, Joe.types);
         }
     }
 }

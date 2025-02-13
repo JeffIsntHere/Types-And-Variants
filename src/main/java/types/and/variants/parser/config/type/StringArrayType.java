@@ -14,10 +14,14 @@ public class StringArrayType extends BaseType
 
     public String toString()
     {
+        if(this.value.isEmpty())
+        {
+            return super.toString() + " : Empty.";
+        }
         StringBuilder stringBuilder = new StringBuilder(super.toString() + " : ");
         for(String string : this.value)
         {
-            stringBuilder.append("\n").append(string);
+            stringBuilder.append(string).append(" ");
         }
         return stringBuilder.toString();
     }

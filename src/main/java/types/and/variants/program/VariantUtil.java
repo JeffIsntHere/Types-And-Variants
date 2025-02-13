@@ -19,35 +19,35 @@ public class VariantUtil extends CommonUtil
     {
         if(enableTanky.value)
         {
-            super.commons.add(Tanky.instance);
+            super.addCommon(Tanky.instance, Tanky.types);
         }
         if(enableFast.value)
         {
-            super.commons.add(Fast.instance);
+            super.addCommon(Fast.instance, Fast.types);
         }
         if(enableWeak.value)
         {
-            super.commons.add(Weak.instance);
+            super.addCommon(Weak.instance, Weak.types);
         }
         if(enableFrail.value)
         {
-            super.commons.add(Frail.instance);
+            super.addCommon(Frail.instance, Frail.types);
         }
         if(enableSlow.value)
         {
-            super.commons.add(Slow.instance);
+            super.addCommon(Slow.instance, Slow.types);
         }
         if(enableSlender.value)
         {
-            super.commons.add(Slender.instance);
+            super.addCommon(Slender.instance, Slender.types);
         }
         if(enableStrange.value)
         {
-            super.commons.add(Strange.instance);
+            super.addCommon(Strange.instance, Strange.types);
         }
         if(enableStrong.value)
         {
-            super.commons.add(Strong.instance);
+            super.addCommon(Strong.instance, Strong.types);
         }
     }
 }
