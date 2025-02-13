@@ -101,7 +101,6 @@ public abstract class CommonUtil
         }
         float randomNumber = randomSource.nextFloat();
         float runningSum = 0.0f;
-        int index = 0;
         for(Common common : commons)
         {
             runningSum += (common.chance() / sum);
