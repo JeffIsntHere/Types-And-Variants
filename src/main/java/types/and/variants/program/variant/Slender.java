@@ -1,12 +1,16 @@
 package types.and.variants.program.variant;
 
-import net.minecraft.world.entity.LivingEntity;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
+import types.and.variants.parser.config.type.StringArrayType;
 import types.and.variants.program.Common;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Slender extends Common
 {
     public static final Slender instance = new Slender();
+    public final StringArrayType types = new StringArrayType("types", new ArrayList<>(List.of("ALL")));
     @Override
     public float chance()
     {

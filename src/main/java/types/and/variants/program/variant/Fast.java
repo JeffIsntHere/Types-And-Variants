@@ -4,11 +4,16 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeMap;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import types.and.variants.parser.config.type.StringArrayType;
 import types.and.variants.program.Common;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Fast extends Common
 {
     public static final Fast instance = new Fast();
+    public final StringArrayType types = new StringArrayType("types", new ArrayList<>(List.of("ALL")));
     @Override
     public float chance()
     {

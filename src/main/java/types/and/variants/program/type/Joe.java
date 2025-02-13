@@ -5,11 +5,16 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.alchemy.Potions;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
+import types.and.variants.parser.config.type.StringArrayType;
 import types.and.variants.program.Common;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Joe extends Common
 {
     public static final Joe instance = new Joe();
+    public final StringArrayType types = new StringArrayType("types", new ArrayList<>(List.of("ALL")));
     @Override
     public float chance()
     {
