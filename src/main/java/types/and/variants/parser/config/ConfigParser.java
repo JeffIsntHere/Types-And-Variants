@@ -6,6 +6,8 @@ import types.and.variants.TypesAndVariants;
 import types.and.variants.parser.File;
 import types.and.variants.parser.Parser;
 import types.and.variants.parser.config.type.TypeArgument;
+import types.and.variants.program.TypeUtil;
+import types.and.variants.program.VariantUtil;
 
 import java.io.Reader;
 import java.util.ArrayList;
@@ -86,6 +88,8 @@ public class ConfigParser extends Parser
     }
     public void reload()
     {
+        TypeUtil.instance.commons.clear();
+        VariantUtil.instance.commons.clear();
         final File file = new File();
         final Reader reader = file.getFileReader("config.txt");
         super.parseFromInput(reader);

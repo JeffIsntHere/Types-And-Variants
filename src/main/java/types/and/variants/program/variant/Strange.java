@@ -2,6 +2,7 @@ package types.and.variants.program.variant;
 
 import net.neoforged.neoforge.common.damagesource.DamageContainer;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
+import types.and.variants.parser.config.type.FloatType;
 import types.and.variants.parser.config.type.StringArrayType;
 import types.and.variants.program.Common;
 
@@ -12,10 +13,11 @@ public class Strange extends Common
 {
     public static final Strange instance = new Strange();
     public static final StringArrayType types = new StringArrayType("types", new ArrayList<>(List.of("all")));
+    public static final FloatType weight = new FloatType("weight", 0.05f);
     @Override
     public float chance()
     {
-        return 0.05f;
+        return Strange.weight.value;
     }
     @Override
     public int id()

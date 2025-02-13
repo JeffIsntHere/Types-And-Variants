@@ -9,6 +9,7 @@ public class StringArrayType extends BaseType
     @Override
     public void save(String string)
     {
+        this.value.clear();
         this.value.addAll(List.of(string.split(",")));
     }
 

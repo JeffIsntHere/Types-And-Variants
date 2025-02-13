@@ -10,7 +10,6 @@ import types.and.variants.TypesAndVariants;
 import types.and.variants.parser.config.type.StringArrayType;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public abstract class CommonUtil
 {
@@ -23,29 +22,6 @@ public abstract class CommonUtil
         boolean neutral = false;
         boolean animal = false;
         boolean found = false;
-        for(String string : TypesAndVariants.types.value)
-        {
-            if(string.equals("all"))
-            {
-                all = !all;
-            }
-            else if(string.equals("monster"))
-            {
-                monster = !monster;
-            }
-            else if(string.equals("neutral"))
-            {
-                neutral = !neutral;
-            }
-            else if(string.equals("animal"))
-            {
-                animal = !animal;
-            }
-            else if(string.equals(name))
-            {
-                found = !found;
-            }
-        }
         for(String string : stringArrayType.value)
         {
             if(string.equals("all"))
@@ -131,7 +107,6 @@ public abstract class CommonUtil
             runningSum += (common.chance() / sum);
             if(runningSum >= randomNumber)
             {
-                TypesAndVariants.logger.debug(common.getClass().getCanonicalName() + " chance was! " + common.chance() + " id was! " + common.id());
                 return common.create();
             }
         }
@@ -140,6 +115,10 @@ public abstract class CommonUtil
     public Common getCommon(final int id)
     {
         this.init();
+        if(id == -1)
+        {
+            return Normal.instance;
+        }
         if(id != 0)
         {
             for(Pair<Common, StringArrayType> pair : this.commons)
@@ -147,6 +126,10 @@ public abstract class CommonUtil
                 final Common common = pair.getFirst();
                 if(common.id() == id)
                 {
+                    TypesAndVariants.logger.debug("found!: " + common);
+                    TypesAndVariants.logger.debug("id: " + common.id());
+                    TypesAndVariants.logger.debug("create: " + common.create());
+                    TypesAndVariants.logger.debug("id from create: " + common.create().id());
                     return common.create();
                 }
             }

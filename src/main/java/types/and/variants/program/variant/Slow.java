@@ -4,6 +4,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeMap;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import types.and.variants.parser.config.type.FloatType;
 import types.and.variants.parser.config.type.StringArrayType;
 import types.and.variants.program.Common;
 
@@ -14,10 +15,11 @@ public class Slow extends Common
 {
     public static final Slow instance = new Slow();
     public static final StringArrayType types = new StringArrayType("types", new ArrayList<>(List.of("all")));
+    public static final FloatType weight = new FloatType("weight", 0.1f);
     @Override
     public float chance()
     {
-        return 0.05f;
+        return Slow.weight.value;
     }
     @Override
     public int id()

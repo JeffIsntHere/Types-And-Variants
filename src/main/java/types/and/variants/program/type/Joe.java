@@ -5,6 +5,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.alchemy.Potions;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
+import types.and.variants.parser.config.type.FloatType;
 import types.and.variants.parser.config.type.StringArrayType;
 import types.and.variants.program.Common;
 
@@ -15,10 +16,11 @@ public class Joe extends Common
 {
     public static final Joe instance = new Joe();
     public static final StringArrayType types = new StringArrayType("types", new ArrayList<>(List.of("all")));
+    public static final FloatType weight = new FloatType("weight", 0.1f);
     @Override
     public float chance()
     {
-        return 0.1f;
+        return Joe.weight.value;
     }
     @Override
     public int id()

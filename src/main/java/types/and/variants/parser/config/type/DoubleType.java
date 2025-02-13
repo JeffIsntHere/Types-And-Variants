@@ -1,6 +1,6 @@
 package types.and.variants.parser.config.type;
 
-public class DecimalType extends BaseType
+public class DoubleType extends BaseType
 {
     public double value;
 
@@ -23,13 +23,13 @@ public class DecimalType extends BaseType
         return super.toString() + " : " + this.value;
     }
 
-    public DecimalType(final String name, final String desc, final double value)
+    public DoubleType(final String name, final String desc, final double value)
     {
         super(name, desc);
         this.value = value;
     }
 
-    public DecimalType(final String name, final double value)
+    public DoubleType(final String name, final double value)
     {
         super(name);
         this.value = value;
