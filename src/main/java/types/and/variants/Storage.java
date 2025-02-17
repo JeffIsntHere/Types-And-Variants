@@ -9,16 +9,27 @@ import types.and.variants.program.VariantUtil;
 public class Storage
 {
     public final LivingEntity mob;
-    protected Common type;
-    protected Common variant;
-    protected boolean initialized;
-    protected void init()
+    protected Common type = Common.invalid;
+    protected Common variant = Common.invalid;
+    protected boolean typeInit = false;
+    protected boolean variantInit = false;
+    protected void initType()
     {
         this.type = TypeUtil.instance.getCommon(this.mob.getRandom(), this.mob);
-        this.type.init(this.mob);
+        if(!this.mob.level().isClientSide())
+        {
+            this.type.init(this.mob);
+        }
+        this.typeInit = true;
+    }
+    protected void initVariant()
+    {
         this.variant = VariantUtil.instance.getCommon(this.mob.getRandom(), this.mob);
-        this.variant.init(this.mob);
-        this.initialized = true;
+        if(!this.mob.level().isClientSide())
+        {
+            this.variant.init(this.mob);
+        }
+        this.variantInit = true;
     }
     public void addAdditionalSaveData(CompoundTag compoundTag)
     {
@@ -27,36 +38,45 @@ public class Storage
     }
     public void readAdditionalSaveData(CompoundTag compoundTag)
     {
-        this.initialized = true;
         this.type = TypeUtil.instance.getCommon(compoundTag.getInt("type"));
         this.variant = VariantUtil.instance.getCommon(compoundTag.getInt("variant"));
-        if(this.type == null || this.variant == null)
+        if(this.type == Common.invalid)
         {
-            this.initialized = false;
+            this.initType();
         }
+        if(this.variant == Common.invalid)
+        {
+            this.initVariant();
+        }
+        this.typeInit = true;
+        this.variantInit = true;
     }
     public void tick()
     {
-        if(!this.initialized)
+        if(!this.typeInit)
         {
-            this.init();
+            this.initType();
+        }
+        if(!this.variantInit)
+        {
+            this.initVariant();
         }
         this.type.tick(this.mob);
         this.variant.tick(this.mob);
     }
     public Common type()
     {
-        if(!this.initialized)
+        if(!this.typeInit)
         {
-            this.init();
+            this.initType();
         }
         return this.type;
     }
     public Common variant()
     {
-        if(!this.initialized)
+        if(!this.variantInit)
         {
-            this.init();
+            this.initVariant();
         }
         return this.variant;
     }

@@ -125,10 +125,6 @@ public abstract class CommonUtil
                 final Common common = pair.getFirst();
                 if(common.id() == id)
                 {
-                    TypesAndVariants.logger.debug("found!: " + common);
-                    TypesAndVariants.logger.debug("id: " + common.id());
-                    TypesAndVariants.logger.debug("create: " + common.create());
-                    TypesAndVariants.logger.debug("id from create: " + common.create().id());
                     return common.create();
                 }
             }
